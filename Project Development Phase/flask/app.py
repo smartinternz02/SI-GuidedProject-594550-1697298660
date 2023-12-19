@@ -1,4 +1,4 @@
-
+#importing the necessary libraries
 import cv2
 import numpy as np
 import os
@@ -9,12 +9,12 @@ from flask import Flask,render_template,request
 
 app = Flask(__name__)
 
-
+#index route
 @app.route('/')
 def index():
     return render_template('index.html')
 
-
+#process method
 @app.route('/process',methods=['POST'])
 def process():
     
@@ -92,7 +92,7 @@ def process():
     cv2.destroyAllWindows()
 
     return render_template('result.html', video_path=video_path,image_path=image_path,posList=posList)
-
+#main 
 if __name__ == '__main__':
     app.run(debug=True)
   
